@@ -1,0 +1,168 @@
+/* Lantern Hunt — page chrome: HUD bar, stage, overlay cards, footer help. */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #141021;
+  color: #f3ead8;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+#app {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+}
+
+#hud {
+  width: 1280px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 18px;
+  background: linear-gradient(180deg, #2c2140, #221a33);
+  border: 1px solid #4a3a68;
+  border-radius: 12px;
+}
+
+.hud-left, .hud-mid, .hud-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#game-title {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #ffd166;
+}
+
+#level-name {
+  font-size: 16px;
+  font-style: italic;
+  color: #c9b8e8;
+}
+
+#found-counter {
+  font-size: 20px;
+  font-weight: bold;
+  color: #8dff9e;
+  background: #1c2b1e;
+  border: 1px solid #3f7a4a;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+#timer {
+  font-size: 22px;
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  color: #ffe9a8;
+  background: #33241a;
+  border: 1px solid #8a6a3a;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+#timer.low { color: #ff6b6b; border-color: #a33; animation: pulse 1s infinite; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+#score {
+  font-size: 18px;
+  color: #ffd166;
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: bold;
+  color: #241a10;
+  background: #ffd166;
+  border: 1px solid #b98a1e;
+  border-radius: 8px;
+  padding: 7px 14px;
+  cursor: pointer;
+}
+
+button:hover { background: #ffe08a; }
+button:disabled { opacity: 0.45; cursor: default; }
+button.secondary { background: #e8ddc8; border-color: #a08a5a; }
+
+#stage {
+  position: relative;
+  width: 1280px;
+  max-width: 100%;
+  border: 1px solid #4a3a68;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0e0a18;
+}
+
+#game { display: block; width: 100%; height: auto; touch-action: none; cursor: crosshair; }
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(12, 8, 24, 0.62);
+}
+
+.overlay.hidden, .hidden { display: none !important; }
+
+.card {
+  width: 560px;
+  max-width: 92%;
+  background: linear-gradient(180deg, #2e2347, #1d1530);
+  border: 2px solid #ffd166;
+  border-radius: 16px;
+  padding: 26px 30px;
+  text-align: center;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+}
+
+.card h1 { margin: 0 0 8px; font-size: 34px; color: #ffd166; letter-spacing: 1px; }
+.card p { margin: 8px 0; font-size: 17px; line-height: 1.5; color: #efe6d2; }
+.card .foot { font-size: 14px; color: #b9a8d8; }
+.card-buttons { display: flex; gap: 12px; justify-content: center; margin-top: 16px; }
+.card-buttons button { font-size: 17px; padding: 10px 22px; }
+
+.levels { display: flex; gap: 10px; justify-content: center; margin: 14px 0 4px; flex-wrap: wrap; }
+.levels button { background: #3d2f5e; color: #ffe9a8; border-color: #6a549a; }
+.levels button:hover { background: #4d3a72; }
+
+#help {
+  width: 1280px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  font-size: 14px;
+  color: #b9a8d8;
+}
+
+#help b { color: #ffd166; }
+
+#status {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
